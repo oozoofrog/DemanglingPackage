@@ -1,0 +1,470 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-module-flags: -target arm64-apple-macos11.1 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Demangling
+@_exported import Demangling
+import Foundation
+import Swift
+extension String {
+  public var demangled: Swift.String? {
+    get
+  }
+  public func demangling(_ options: Demangling.DemangleOptions) -> Swift.String?
+}
+public struct FunctionSigSpecializationParamKind : Swift.Equatable {
+  public let rawValue: Swift.UInt
+  public static func == (a: Demangling.FunctionSigSpecializationParamKind, b: Demangling.FunctionSigSpecializationParamKind) -> Swift.Bool
+}
+public protocol StringIntegerIndexable : Swift.StringProtocol {
+  subscript(indexRange: Swift.Range<Swift.Int>) -> Swift.Substring { get }
+  subscript(r: Swift.Range<Self.Index>) -> Swift.Substring { get }
+}
+extension StringIntegerIndexable {
+  public subscript(index: Swift.Int) -> Swift.Character {
+    get
+  }
+  public subscript(indexRange: Swift.Range<Swift.Int>) -> Swift.Substring {
+    get
+  }
+}
+extension String : Demangling.StringIntegerIndexable {
+}
+extension Substring : Demangling.StringIntegerIndexable {
+}
+@_hasMissingDesignatedInitializers final public class Node {
+  @objc deinit
+}
+extension Node {
+  public enum Payload : Swift.Equatable {
+    case none
+    case text(Swift.String)
+    case index(Swift.UInt64)
+    case valueWitnessKind(Demangling.Node.ValueWitnessKind)
+    case mangledDifferentiabilityKind(Demangling.MangledDifferentiabilityKind)
+    case functionSigSpecializationParamKind(Demangling.FunctionSigSpecializationParamKind)
+    case directness(Demangling.Node.Directness)
+    case onechild
+    case twochildren
+    case manychildren
+    public static func == (a: Demangling.Node.Payload, b: Demangling.Node.Payload) -> Swift.Bool
+  }
+  public enum Kind : Swift.String, Swift.Equatable {
+    case Allocator
+    case AnonymousContext
+    case AnyProtocolConformanceList
+    case ArgumentTuple
+    case AssociatedType
+    case AssociatedTypeRef
+    case AssociatedTypeMetadataAccessor
+    case DefaultAssociatedTypeMetadataAccessor
+    case AssociatedTypeWitnessTableAccessor
+    case BaseWitnessTableAccessor
+    case AutoClosureType
+    case BoundGenericClass
+    case BoundGenericEnum
+    case BoundGenericStructure
+    case BoundGenericProtocol
+    case BoundGenericOtherNominalType
+    case BoundGenericTypeAlias
+    case BoundGenericFunction
+    case BuiltinTypeName
+    case CFunctionPointer
+    case ClangType
+    case Class
+    case ClassMetadataBaseOffset
+    case ConcreteProtocolConformance
+    case Constructor
+    case CoroutineContinuationPrototype
+    case Deallocator
+    case DeclContext
+    case DefaultArgumentInitializer
+    case DependentAssociatedConformance
+    case DependentAssociatedTypeRef
+    case DependentGenericConformanceRequirement
+    case DependentGenericParamCount
+    case DependentGenericParamType
+    case DependentGenericSameTypeRequirement
+    case DependentGenericLayoutRequirement
+    case DependentGenericSignature
+    case DependentGenericType
+    case DependentMemberType
+    case DependentPseudogenericSignature
+    case DependentProtocolConformanceRoot
+    case DependentProtocolConformanceInherited
+    case DependentProtocolConformanceAssociated
+    case Destructor
+    case DidSet
+    case Directness
+    case DynamicAttribute
+    case DirectMethodReferenceAttribute
+    case DynamicSelf
+    case DynamicallyReplaceableFunctionImpl
+    case DynamicallyReplaceableFunctionKey
+    case DynamicallyReplaceableFunctionVar
+    case Enum
+    case EnumCase
+    case ErrorType
+    case EscapingAutoClosureType
+    case NoEscapeFunctionType
+    case ConcurrentFunctionType
+    case GlobalActorFunctionType
+    case DifferentiableFunctionType
+    case ExistentialMetatype
+    case ExplicitClosure
+    case Extension
+    case FieldOffset
+    case FullTypeMetadata
+    case Function
+    case FunctionSignatureSpecialization
+    case FunctionSignatureSpecializationParam
+    case FunctionSignatureSpecializationReturn
+    case FunctionSignatureSpecializationParamKind
+    case FunctionSignatureSpecializationParamPayload
+    case FunctionType
+    case GenericPartialSpecialization
+    case GenericPartialSpecializationNotReAbstracted
+    case GenericProtocolWitnessTable
+    case GenericProtocolWitnessTableInstantiationFunction
+    case ResilientProtocolWitnessTable
+    case GenericSpecialization
+    case GenericSpecializationNotReAbstracted
+    case GenericSpecializationInResilienceDomain
+    case GenericSpecializationParam
+    case GenericSpecializationPrespecialized
+    case InlinedGenericFunction
+    case GenericTypeMetadataPattern
+    case Getter
+    case Global
+    case GlobalGetter
+    case Identifier
+    case Index
+    case IVarInitializer
+    case IVarDestroyer
+    case ImplEscaping
+    case ImplConvention
+    case ImplDifferentiabilityKind
+    case ImplParameterResultDifferentiability
+    case ImplFunctionAttribute
+    case ImplFunctionConvention
+    case ImplFunctionConventionName
+    case ImplFunctionType
+    case ImplInvocationSubstitutions
+    case ImplicitClosure
+    case ImplParameter
+    case ImplPatternSubstitutions
+    case ImplResult
+    case ImplYield
+    case ImplErrorResult
+    case InOut
+    case InfixOperator
+    case Initializer
+    case KeyPathGetterThunkHelper
+    case KeyPathSetterThunkHelper
+    case KeyPathEqualsThunkHelper
+    case KeyPathHashThunkHelper
+    case LazyProtocolWitnessTableAccessor
+    case LazyProtocolWitnessTableCacheVariable
+    case LocalDeclName
+    case MaterializeForSet
+    case MergedFunction
+    case Metatype
+    case MetatypeRepresentation
+    case Metaclass
+    case MethodLookupFunction
+    case ObjCMetadataUpdateFunction
+    case ObjCResilientClassStub
+    case FullObjCResilientClassStub
+    case ModifyAccessor
+    case Module
+    case NativeOwningAddressor
+    case NativeOwningMutableAddressor
+    case NativePinningAddressor
+    case NativePinningMutableAddressor
+    case NominalTypeDescriptor
+    case NonObjCAttribute
+    case Number
+    case ObjCAsyncCompletionHandlerImpl
+    case PredefinedObjCAsyncCompletionHandlerImpl
+    case ObjCAttribute
+    case ObjCBlock
+    case EscapingObjCBlock
+    case OtherNominalType
+    case OwningAddressor
+    case OwningMutableAddressor
+    case PartialApplyForwarder
+    case PartialApplyObjCForwarder
+    case PostfixOperator
+    case PrefixOperator
+    case PrivateDeclName
+    case PropertyDescriptor
+    case PropertyWrapperBackingInitializer
+    case PropertyWrapperInitFromProjectedValue
+    case `Protocol`
+    case ProtocolSymbolicReference
+    case ProtocolConformance
+    case ProtocolConformanceRefInTypeModule
+    case ProtocolConformanceRefInProtocolModule
+    case ProtocolConformanceRefInOtherModule
+    case ProtocolDescriptor
+    case ProtocolConformanceDescriptor
+    case ProtocolList
+    case ProtocolListWithClass
+    case ProtocolListWithAnyObject
+    case ProtocolSelfConformanceDescriptor
+    case ProtocolSelfConformanceWitness
+    case ProtocolSelfConformanceWitnessTable
+    case ProtocolWitness
+    case ProtocolWitnessTable
+    case ProtocolWitnessTableAccessor
+    case ProtocolWitnessTablePattern
+    case ReabstractionThunk
+    case ReabstractionThunkHelper
+    case ReabstractionThunkHelperWithSelf
+    case ReabstractionThunkHelperWithGlobalActor
+    case ReadAccessor
+    case RelatedEntityDeclName
+    case RetroactiveConformance
+    case ReturnType
+    case Shared
+    case Owned
+    case SILBoxType
+    case SILBoxTypeWithLayout
+    case SILBoxLayout
+    case SILBoxMutableField
+    case SILBoxImmutableField
+    case Setter
+    case SpecializationPassID
+    case IsSerialized
+    case Static
+    case Structure
+    case Subscript
+    case Suffix
+    case ThinFunctionType
+    case Tuple
+    case TupleElement
+    case TupleElementName
+    case `Type`
+    case TypeSymbolicReference
+    case TypeAlias
+    case TypeList
+    case TypeMangling
+    case TypeMetadata
+    case TypeMetadataAccessFunction
+    case TypeMetadataCompletionFunction
+    case TypeMetadataInstantiationCache
+    case TypeMetadataInstantiationFunction
+    case TypeMetadataSingletonInitializationCache
+    case TypeMetadataDemanglingCache
+    case TypeMetadataLazyCache
+    case UncurriedFunctionType
+    case UnknownIndex
+    case Weak
+    case Unowned
+    case Unmanaged
+    case UnsafeAddressor
+    case UnsafeMutableAddressor
+    case ValueWitness
+    case ValueWitnessTable
+    case Variable
+    case VTableThunk
+    case VTableAttribute
+    case WillSet
+    case ReflectionMetadataBuiltinDescriptor
+    case ReflectionMetadataFieldDescriptor
+    case ReflectionMetadataAssocTypeDescriptor
+    case ReflectionMetadataSuperclassDescriptor
+    case GenericTypeParamDecl
+    case CurryThunk
+    case DispatchThunk
+    case MethodDescriptor
+    case ProtocolRequirementsBaseDescriptor
+    case AssociatedConformanceDescriptor
+    case DefaultAssociatedConformanceAccessor
+    case BaseConformanceDescriptor
+    case AssociatedTypeDescriptor
+    case AsyncAnnotation
+    case ThrowsAnnotation
+    case EmptyList
+    case FirstElementMarker
+    case VariadicMarker
+    case OutlinedBridgedMethod
+    case OutlinedCopy
+    case OutlinedConsume
+    case OutlinedRetain
+    case OutlinedRelease
+    case OutlinedInitializeWithTake
+    case OutlinedInitializeWithCopy
+    case OutlinedAssignWithTake
+    case OutlinedAssignWithCopy
+    case OutlinedDestroy
+    case OutlinedVariable
+    case AssocTypePath
+    case LabelList
+    case ModuleDescriptor
+    case ExtensionDescriptor
+    case AnonymousDescriptor
+    case AssociatedTypeGenericParamRef
+    case SugaredOptional
+    case SugaredArray
+    case SugaredDictionary
+    case SugaredParen
+    case AccessorFunctionReference
+    case OpaqueType
+    case OpaqueTypeDescriptorSymbolicReference
+    case OpaqueTypeDescriptor
+    case OpaqueTypeDescriptorAccessor
+    case OpaqueTypeDescriptorAccessorImpl
+    case OpaqueTypeDescriptorAccessorKey
+    case OpaqueTypeDescriptorAccessorVar
+    case OpaqueReturnType
+    case OpaqueReturnTypeOf
+    case CanonicalSpecializedGenericMetaclass
+    case CanonicalSpecializedGenericTypeMetadataAccessFunction
+    case MetadataInstantiationCache
+    case NoncanonicalSpecializedGenericTypeMetadata
+    case NoncanonicalSpecializedGenericTypeMetadataCache
+    case GlobalVariableOnceFunction
+    case GlobalVariableOnceToken
+    case GlobalVariableOnceDeclList
+    case CanonicalPrespecializedGenericTypeCachingOnceToken
+    case AsyncFunctionPointer
+    case AutoDiffFunction
+    case AutoDiffFunctionKind
+    case AutoDiffSelfReorderingReabstractionThunk
+    case AutoDiffSubsetParametersThunk
+    case AutoDiffDerivativeVTableThunk
+    case DifferentiabilityWitness
+    case NoDerivative
+    case IndexSubset
+    case AsyncAwaitResumePartialFunction
+    case AsyncSuspendResumePartialFunction
+    public func `in`(_ kinds: Demangling.Node.Kind...) -> Swift.Bool
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public enum IsVariadic {
+    case yes, no
+    public static func == (a: Demangling.Node.IsVariadic, b: Demangling.Node.IsVariadic) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Directness {
+    case direct, indirect, unknown
+    public static func == (a: Demangling.Node.Directness, b: Demangling.Node.Directness) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum ValueWitnessKind {
+    case AllocateBuffer
+    case AssignWithCopy
+    case AssignWithTake
+    case DeallocateBuffer
+    case Destroy
+    case DestroyBuffer
+    case DestroyArray
+    case InitializeBufferWithCopyOfBuffer
+    case InitializeBufferWithCopy
+    case InitializeWithCopy
+    case InitializeBufferWithTake
+    case InitializeWithTake
+    case ProjectBuffer
+    case InitializeBufferWithTakeOfBuffer
+    case InitializeArrayWithCopy
+    case InitializeArrayWithTakeFrontToBack
+    case InitializeArrayWithTakeBackToFront
+    case StoreExtraInhabitant
+    case GetExtraInhabitantIndex
+    case GetEnumTag
+    case DestructiveProjectEnumData
+    case DestructiveInjectEnumTag
+    case GetEnumTagSinglePayload
+    case StoreEnumTagSinglePayload
+    public static func == (a: Demangling.Node.ValueWitnessKind, b: Demangling.Node.ValueWitnessKind) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+}
+extension Node : Swift.CustomDebugStringConvertible {
+  final public var debugDescription: Swift.String {
+    get
+  }
+}
+extension Optional : Swift.Comparable where Wrapped == Swift.Int {
+  public static func == (lhs: Swift.Int?, rhs: Swift.Int?) -> Swift.Bool
+  public static func < (lhs: Swift.Int?, rhs: Swift.Int?) -> Swift.Bool
+}
+public enum ReferenceOwnership : Swift.String {
+  case strong
+  case weak
+  case unowned
+  case unmanaged
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum MangledDifferentiabilityKind : Swift.String {
+  case nonDifferentiable
+  case forward
+  case reverse
+  case normal
+  case linear
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct DemangleOptions : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let synthesizeSugarOnTypes: Demangling.DemangleOptions
+  public static let qualifyEntities: Demangling.DemangleOptions
+  public static let displayExtensionContexts: Demangling.DemangleOptions
+  public static let displayUnmangledSuffix: Demangling.DemangleOptions
+  public static let displayModuleNames: Demangling.DemangleOptions
+  public static let displayGenericSpecializations: Demangling.DemangleOptions
+  public static let displayProtocolConformances: Demangling.DemangleOptions
+  public static let displayWhereClauses: Demangling.DemangleOptions
+  public static let displayEntityTypes: Demangling.DemangleOptions
+  public static let displayLocalNameContexts: Demangling.DemangleOptions
+  public static let shortenPartialApply: Demangling.DemangleOptions
+  public static let shortenThunk: Demangling.DemangleOptions
+  public static let shortenValueWitness: Demangling.DemangleOptions
+  public static let shortenArchetype: Demangling.DemangleOptions
+  public static let showPrivateDiscriminators: Demangling.DemangleOptions
+  public static let showFunctionArgumentTypes: Demangling.DemangleOptions
+  public static let displayDebuggerGeneratedModule: Demangling.DemangleOptions
+  public static let displayStdlibModule: Demangling.DemangleOptions
+  public static let displayObjCModule: Demangling.DemangleOptions
+  public static let printForTypeName: Demangling.DemangleOptions
+  public static let showAsyncResumePartial: Demangling.DemangleOptions
+  public static let defaultOptions: Demangling.DemangleOptions
+  public static let simplifiedOptions: Demangling.DemangleOptions
+  public typealias ArrayLiteralElement = Demangling.DemangleOptions
+  public typealias Element = Demangling.DemangleOptions
+  public typealias RawValue = Swift.Int
+}
+extension Demangling.Node.Kind : Swift.Hashable {}
+extension Demangling.Node.Kind : Swift.RawRepresentable {}
+extension Demangling.Node.IsVariadic : Swift.Equatable {}
+extension Demangling.Node.IsVariadic : Swift.Hashable {}
+extension Demangling.Node.Directness : Swift.Equatable {}
+extension Demangling.Node.Directness : Swift.Hashable {}
+extension Demangling.Node.ValueWitnessKind : Swift.Equatable {}
+extension Demangling.Node.ValueWitnessKind : Swift.Hashable {}
+extension Demangling.ReferenceOwnership : Swift.Equatable {}
+extension Demangling.ReferenceOwnership : Swift.Hashable {}
+extension Demangling.ReferenceOwnership : Swift.RawRepresentable {}
+extension Demangling.MangledDifferentiabilityKind : Swift.Equatable {}
+extension Demangling.MangledDifferentiabilityKind : Swift.Hashable {}
+extension Demangling.MangledDifferentiabilityKind : Swift.RawRepresentable {}

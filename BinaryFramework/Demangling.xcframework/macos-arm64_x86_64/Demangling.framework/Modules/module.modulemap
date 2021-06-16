@@ -1,0 +1,11 @@
+framework module Demangling {
+  umbrella header "Demangling.h"
+
+  export *
+  module * { export * }
+}
+
+module Demangling.Swift {
+    header "Demangling-Swift.h"
+    requires objc
+}
